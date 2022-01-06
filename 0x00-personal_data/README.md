@@ -14,15 +14,20 @@ Read or watch:
 Write a function called `filter_datum` that returns the log message obfuscated:
 
 * Arguments:
-`fields`: a list of strings representing all fields to obfuscate
 
-`redaction`: a string representing by what the field will be obfuscated
+    `fields`: a list of strings representing all fields to obfuscate
 
-`message`: a string representing the log line
+    `redaction`: a string representing by what the field will be obfuscated
 
-`separator`: a string representing by which character is separating all fields in the log line (`message`)
+    `message`: a string representing the log line
 
-The function should use a regex to replace occurrences of certain field values.
+    `separator`: a string representing by which character is separating all fields in the log line (`message`)
 
-`filter_datum` should be less than 5 lines long and use `re.sub` to perform the substitution with a single regex.
+* The function should use a regex to replace occurrences of certain field values.
 
+* `filter_datum` should be less than 5 lines long and use `re.sub` to perform the substitution with a single regex.
+```
+bob@dylan:~$ ./main.py
+name=egg;email=eggmin@eggsample.com;password=xxx;date_of_birth=xxx;
+name=bob;email=bob@dylan.com;password=xxx;date_of_birth=xxx;
+```
