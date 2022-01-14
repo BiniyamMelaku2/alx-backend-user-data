@@ -6,7 +6,6 @@ from flask import request
 from typing import List, TypeVar
 import os
 
-
 class Auth:
     """class to manage the API authentication"""
 
@@ -50,4 +49,6 @@ class Auth:
         '''returns a cookie value from a request'''
         if request is None:
             return None
+        if os.getenv('SESSION_NAME') is None:
+            return
         return request.cookies.get(os.getenv('SESSION_NAME'))
