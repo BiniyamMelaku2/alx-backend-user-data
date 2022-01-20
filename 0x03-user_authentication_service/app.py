@@ -74,8 +74,8 @@ def profile() -> str:
 
 
 @app.route('/reset_password', methods=['POST'], strict_slashes=False)
-def update_password() -> str:
-    '''respond to the PUT /reset_password to update password'''
+def get_reset_password_token() -> str:
+    '''respond to the POST /reset_password to reset password'''
     try:
         email = request.form["email"]
     except KeyError:
