@@ -16,7 +16,7 @@ def index() -> str:
 
 
 @app.route('/users', methods=['POST'])
-def users() -> str:
+def register_user() -> str:
     try:
         email = request.form['email']
         password = request.form['password']
