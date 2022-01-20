@@ -54,3 +54,22 @@ class Auth:
         else:
             user.session_id = _generate_uuid()
             return user.session_id
+
+    def get_user_from_session_id() -> str:
+        '''takes a single session_id & return the corresponding user.'''
+        try:
+            user = self._db.find_user_by(session_id=session_id)
+        except NoResultFound:
+            return None
+        if user.session_id is None:
+            return None
+        else:
+            return user
+
+    def destroy_session(self, user_id: int) -> None:
+        '''updates the corresponding user’s session ID to None'''
+        try:
+            user = self._db.find_user_by(id=user_id)
+        except NoResultFound:
+            return None
+        user.session_id = None
