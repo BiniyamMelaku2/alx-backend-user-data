@@ -12,11 +12,13 @@ app.config['JSONIFY_PRETTYPRINT_REGULAR'] = True
 
 @app.route('/', methods=['GET'])
 def index() -> str:
+    '''index to display hello'''
     return jsonify({"message": "Bienvenue"})
 
 
 @app.route('/users', methods=['POST'])
 def register_user() -> str:
+    '''to record into db new user'''
     try:
         email = request.form['email']
         password = request.form['password']
